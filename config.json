@@ -1,0 +1,30 @@
+{
+    "settings": {
+        "game": {
+            "resWidth": 1280,
+            "resHeight": 720,
+            "fullscreen": false,
+            "autoConnect": true,
+            "launchDetached": true
+        },
+        "launcher": {
+            "allowPrerelease": false,
+            "dataDirectory": "/home/devuser/.glorynations"
+        }
+    },
+    "newsCache": {
+        "date": null,
+        "content": null,
+        "dismissed": false
+    },
+    "clientToken": null,
+    "selectedServer": null,
+    "selectedAccount": null,
+    "authenticationDatabase": {},
+    "modConfigurations": [],
+    "javaConfig": {
+        "GloryNations-1218": {
+            "JavaExecutable": "C:\\Program Files\\Java\\jdk-21\\bin\\javaw.exe"
+        }
+    }
+}
