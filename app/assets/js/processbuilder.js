@@ -382,18 +382,8 @@ class ProcessBuilder {
 
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
-            logger.info('[NeoForge]: Adding required JVM arguments for module system')
-            
-            // Add NeoForge JARs to module path
-            const bootstrapPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'bootstraplauncher', '9.0.18', 'bootstraplauncher-9.0.18.jar')
-            const securejarPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'securejarhandler', '9.0.18', 'securejarhandler-9.0.18.jar')
-            args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
-            
-            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-exports', 'jdk.naming.dns/com.sun.jndi.dns=java.naming')
+            logger.info('[NeoForge]: Disabling Java module system restrictions for NeoForge')
+            args.push('--illegal-access=permit')
         }
 
         // Main Java Class
@@ -448,18 +438,8 @@ class ProcessBuilder {
 
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
-            logger.info('[NeoForge]: Adding required JVM arguments for module system')
-            
-            // Add NeoForge JARs to module path
-            const bootstrapPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'bootstraplauncher', '9.0.18', 'bootstraplauncher-9.0.18.jar')
-            const securejarPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'securejarhandler', '9.0.18', 'securejarhandler-9.0.18.jar')
-            args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
-            
-            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-exports', 'jdk.naming.dns/com.sun.jndi.dns=java.naming')
+            logger.info('[NeoForge]: Disabling Java module system restrictions for NeoForge')
+            args.push('--illegal-access=permit')
         }
 
         // Main Java Class
