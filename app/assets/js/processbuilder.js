@@ -383,6 +383,12 @@ class ProcessBuilder {
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
             logger.info('[NeoForge]: Adding required JVM arguments for module system')
+            
+            // Add NeoForge JARs to module path
+            const bootstrapPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'bootstraplauncher', '9.0.18', 'bootstraplauncher-9.0.18.jar')
+            const securejarPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'securejarhandler', '9.0.18', 'securejarhandler-9.0.18.jar')
+            args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
+            
             args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
             args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')
             args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
@@ -443,6 +449,12 @@ class ProcessBuilder {
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
             logger.info('[NeoForge]: Adding required JVM arguments for module system')
+            
+            // Add NeoForge JARs to module path
+            const bootstrapPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'bootstraplauncher', '9.0.18', 'bootstraplauncher-9.0.18.jar')
+            const securejarPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'securejarhandler', '9.0.18', 'securejarhandler-9.0.18.jar')
+            args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
+            
             args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
             args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')
             args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
