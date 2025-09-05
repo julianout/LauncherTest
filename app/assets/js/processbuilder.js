@@ -899,7 +899,9 @@ class ProcessBuilder {
                                 // Only include if the library exists (already downloaded by Helios core)
                                 if(fs.existsSync(libPath)){
                                     logger.debug('[NeoForge]: Including library:', lib.name)
-                                    libs[lib.name] = libPath
+                                    // Use versionless identifier to avoid conflicts with Mojang libraries
+                                    const versionlessId = lib.name.substring(0, lib.name.lastIndexOf(':'))
+                                    libs[versionlessId] = libPath
                                 } else {
                                     logger.warn('[NeoForge]: Library not found:', lib.name, 'at', libPath)
                                 }
