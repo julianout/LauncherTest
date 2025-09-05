@@ -443,10 +443,10 @@ class ProcessBuilder {
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
             logger.info('[NeoForge]: Adding required JVM arguments for module system')
-            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED,cpw.mods.securejarhandler')
-            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED,cpw.mods.securejarhandler')
+            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
+            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED')
             args.push('--add-exports', 'jdk.naming.dns/com.sun.jndi.dns=java.naming')
         }
 
