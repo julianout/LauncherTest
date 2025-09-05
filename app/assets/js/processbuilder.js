@@ -390,11 +390,11 @@ class ProcessBuilder {
             args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
             
             // Add opens for module access permissions
-            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
-            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')  
-            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
-            args.push('--add-opens', 'java.base/sun.nio.ch=ALL-UNNAMED')
-            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/java.lang.invoke=cpw.mods.securejarhandler')
+            args.push('--add-opens', 'java.base/java.util.jar=cpw.mods.securejarhandler')  
+            args.push('--add-opens', 'java.base/java.lang=cpw.mods.securejarhandler')
+            args.push('--add-opens', 'java.base/sun.nio.ch=cpw.mods.securejarhandler')
+            args.push('--add-exports', 'java.base/sun.security.util=cpw.mods.securejarhandler')
         }
 
         // Main Java Class
@@ -457,11 +457,11 @@ class ProcessBuilder {
             args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
             
             // Add opens for module access permissions
-            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
-            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')  
-            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
-            args.push('--add-opens', 'java.base/sun.nio.ch=ALL-UNNAMED')
-            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/java.lang.invoke=cpw.mods.securejarhandler')
+            args.push('--add-opens', 'java.base/java.util.jar=cpw.mods.securejarhandler')  
+            args.push('--add-opens', 'java.base/java.lang=cpw.mods.securejarhandler')
+            args.push('--add-opens', 'java.base/sun.nio.ch=cpw.mods.securejarhandler')
+            args.push('--add-exports', 'java.base/sun.security.util=cpw.mods.securejarhandler')
         }
 
         // Main Java Class
