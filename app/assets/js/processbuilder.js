@@ -380,14 +380,6 @@ class ProcessBuilder {
         args = args.concat(ConfigManager.getJVMOptions(this.server.rawServer.id))
         args.push('-Djava.library.path=' + tempNativePath)
 
-        // Add NeoForge specific JVM arguments if using NeoForge
-        if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
-            logger.info('[NeoForge]: Adding required JVM arguments for module system')
-            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
-            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')
-            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED')
-            args.push('--add-exports', 'jdk.naming.dns/com.sun.jndi.dns=java.naming')
-        }
 
         // Main Java Class
         args.push(this.modManifest.mainClass)
@@ -438,6 +430,15 @@ class ProcessBuilder {
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
         args.push('-Xms' + ConfigManager.getMinRAM(this.server.rawServer.id))
         args = args.concat(ConfigManager.getJVMOptions(this.server.rawServer.id))
+
+        // Add NeoForge specific JVM arguments if using NeoForge
+        if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
+            logger.info('[NeoForge]: Adding required JVM arguments for module system')
+            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')
+            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED')
+            args.push('--add-exports', 'jdk.naming.dns/com.sun.jndi.dns=java.naming')
+        }
 
         // Main Java Class
         args.push(this.modManifest.mainClass)
