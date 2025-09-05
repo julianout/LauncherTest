@@ -382,8 +382,12 @@ class ProcessBuilder {
 
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
-            logger.info('[NeoForge]: Disabling Java module system restrictions for NeoForge')
-            args.push('--illegal-access=permit')
+            logger.info('[NeoForge]: Adding required JVM arguments for Java 17+ compatibility')
+            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')  
+            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/sun.nio.ch=ALL-UNNAMED')
+            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED')
         }
 
         // Main Java Class
@@ -438,8 +442,12 @@ class ProcessBuilder {
 
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
-            logger.info('[NeoForge]: Disabling Java module system restrictions for NeoForge')
-            args.push('--illegal-access=permit')
+            logger.info('[NeoForge]: Adding required JVM arguments for Java 17+ compatibility')
+            args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')  
+            args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
+            args.push('--add-opens', 'java.base/sun.nio.ch=ALL-UNNAMED')
+            args.push('--add-exports', 'java.base/sun.security.util=ALL-UNNAMED')
         }
 
         // Main Java Class
