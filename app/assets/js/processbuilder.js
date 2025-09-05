@@ -382,7 +382,14 @@ class ProcessBuilder {
 
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
-            logger.info('[NeoForge]: Adding required JVM arguments for Java 17+ compatibility')
+            logger.info('[NeoForge]: Adding module-path and JVM arguments for Java 21 compatibility')
+            
+            // Add NeoForge JARs to module path so Java can find the modules
+            const bootstrapPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'bootstraplauncher', '9.0.18', 'bootstraplauncher-9.0.18.jar')
+            const securejarPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'securejarhandler', '9.0.18', 'securejarhandler-9.0.18.jar')
+            args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
+            
+            // Add opens for module access permissions
             args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
             args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')  
             args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
@@ -442,7 +449,14 @@ class ProcessBuilder {
 
         // Add NeoForge specific JVM arguments if using NeoForge
         if(this.modManifest.mainClass === 'cpw.mods.bootstraplauncher.BootstrapLauncher') {
-            logger.info('[NeoForge]: Adding required JVM arguments for Java 17+ compatibility')
+            logger.info('[NeoForge]: Adding module-path and JVM arguments for Java 21 compatibility')
+            
+            // Add NeoForge JARs to module path so Java can find the modules
+            const bootstrapPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'bootstraplauncher', '9.0.18', 'bootstraplauncher-9.0.18.jar')
+            const securejarPath = path.join(this.libPath, 'net', 'neoforged', 'fancymodloader', 'securejarhandler', '9.0.18', 'securejarhandler-9.0.18.jar')
+            args.push('--module-path', bootstrapPath + path.delimiter + securejarPath)
+            
+            // Add opens for module access permissions
             args.push('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
             args.push('--add-opens', 'java.base/java.util.jar=ALL-UNNAMED')  
             args.push('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
